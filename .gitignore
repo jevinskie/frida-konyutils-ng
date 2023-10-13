@@ -1,0 +1,12 @@
+# Python
+**/__pycache__/
+/frida_konyutils_ng.egg-info/
+/frida_konyutils_ng/_version.py
+/dist/
+
+# npm
+/frida_konyutils_ng/agent_dist/
+/node_modules/
+
+# VS Code
+**/.vscode

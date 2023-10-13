@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61", "setuptools-scm>=8.0", "setuptools-npm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frida-konyutils-ng"
+dynamic = ["version"]
+authors = [
+    {name = "Terry Chia", email = "terrycwk1994@gmail.com"},
+    {name = "Jevin Sweval", email = "jevinsweval@gmail.com"},
+]
+description = "Improved konyutils for decrypting/dumping Kony app JavaScript bundles"
+readme = {file = 'README.md', content-type='text/markdown'}
+requires-python = ">=3.9"
+keywords = ["kony", "frida", "dumper"]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "frida-tools",
+    "path",
+    "rich",
+]
+
+[project.urls]
+repository = "https://github.com/jevinskie/frida-konyutils-ng"
+
+[project.scripts]
+konyutils-ng = "frida_konyutils_ng.frida_konyutils_ng:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "frida_konyutils_ng._version.__version__"}
+
+[tool.setuptools_scm]
+version_file = "frida_konyutils_ng/_version.py"
+
+[tool.setuptools]
+packages = ["frida_konyutils_ng"]
+zip-safe = true
+
+[tool.setuptools.package-data]
+frida_konyutils_ng = ["../package.json", "../package-lock.json", "agent/*.ts", "agent_dist/*.js"]
+
+# [tool.setuptools.exclude-package-data]
+# frida_konyutils_ng = ["../package.json", "../package-lock.json"]
+
+[tool.npm_run]
+script = "build"
